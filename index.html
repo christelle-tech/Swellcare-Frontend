@@ -1,10 +1,113 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Swellcare Sandbox</title>
-  </head>
-  <body>
-    <h1>Welcome to the Swellcare Frontend Sandbox 🚀</h1>
-    <p>This is your new deployment environment on Vercel!</p>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Swellcare Frontend Sandbox</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #f4f4f4;
+      border-radius: 10px;
+    }
+
+    h1 {
+      color: #333;
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      margin: 15px 0 5px;
+    }
+
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    #state-field {
+      display: none;
+    }
+
+    button {
+      background-color: #008080;
+      color: white;
+      border: none;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #006666;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Swellcare Visit Form</h1>
+
+  <form id="visitForm">
+    <label for="name">Name *</label>
+    <input type="text" id="name" name="name" required />
+
+    <label for="email">Email *</label>
+    <input type="email" id="email" name="email" required />
+
+    <label for="visitType">Visit Type *</label>
+    <select id="visitType" name="visitType" required>
+      <option value="">-- Select Visit Type --</option>
+      <option value="text">Text Visit ($30.00)</option>
+      <option value="video">Video Visit ($50.00)</option>
+    </select>
+
+    <div id="state-field">
+      <label for="state">State *</label>
+      <input type="text" id="state" name="state" placeholder="Start typing to search..." list="stateList" />
+      <datalist id="stateList">
+        <option value="Alabama">
+        <option value="Alaska">
+        <option value="Arizona">
+        <option value="California">
+        <option value="Florida">
+        <option value="New York">
+        <option value="Texas">
+        <option value="Washington">
+        <!-- Add more as needed -->
+      </datalist>
+    </div>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    const visitType = document.getElementById("visitType");
+    const stateField = document.getElementById("state-field");
+    const stateInput = document.getElementById("state");
+
+    visitType.addEventListener("change", function () {
+      if (this.value === "text") {
+        stateField.style.display = "block";
+        stateInput.required = true;
+      } else {
+        stateField.style.display = "none";
+        stateInput.required = false;
+        stateInput.value = '';
+      }
+    });
+
+    document.getElementById("visitForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      alert("Form submitted successfully (dummy alert for now)!");
+      // Later, send to Zoho or start automation from here
+    });
+  </script>
+
+</body>
 </html>
