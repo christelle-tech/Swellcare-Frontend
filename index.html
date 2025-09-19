@@ -1,38 +1,115 @@
-<form id="visit-form" onsubmit="handleSubmit(event)">
-  <h2>Swellcare Visit Form</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Swellcare Visit Form</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f1f1f1;
+      padding: 40px;
+    }
 
-  <label for="name">Name *</label>
-  <input type="text" id="name" name="name" required />
+    form {
+      background: white;
+      max-width: 500px;
+      margin: auto;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
 
-  <label for="email">Email *</label>
-  <input type="email" id="email" name="email" required />
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
 
-  <label for="phone">Phone *</label>
-  <input type="tel" id="phone" name="phone" pattern="[0-9+\s\-()]{7,}" required placeholder="+1 (555) 123-4567" />
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
 
-  <label for="visit-type">Visit Type *</label>
-  <select id="visit-type" name="visit-type" required onchange="toggleStateField()">
-    <option value="">-- Select Visit Type --</option>
-    <option value="text">Text Visit</option>
-    <option value="video">Video Visit</option>
-  </select>
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
 
-  <div id="state-field" style="display:none;">
-    <label for="state">Select State *</label>
-    <input type="text" id="state" name="state" list="state-options" placeholder="Start typing..." />
-    <datalist id="state-options">
-      <option value="Alabama">
-      <option value="Alaska">
-      <option value="Arizona">
-      <option value="California">
-      <option value="Colorado">
-      <option value="Florida">
-      <option value="New York">
-      <option value="Texas">
-      <!-- Add more states as needed -->
-    </datalist>
-  </div>
+    button {
+      margin-top: 25px;
+      width: 100%;
+      padding: 12px;
+      background-color: #007878;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
 
-  <button type="submit">Submit</button>
-</form>
+    button:hover {
+      background-color: #005f5f;
+    }
 
+    #state-field {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <form id="visit-form" onsubmit="handleSubmit(event)">
+    <h2>Swellcare Visit Form</h2>
+
+    <label for="name">Name *</label>
+    <input type="text" id="name" name="name" required />
+
+    <label for="email">Email *</label>
+    <input type="email" id="email" name="email" required />
+
+    <label for="phone">Phone *</label>
+    <input type="tel" id="phone" name="phone" required placeholder="+1 (555) 123-4567" pattern="[0-9+\s\-()]{7,}" />
+
+    <label for="visit-type">Visit Type *</label>
+    <select id="visit-type" name="visit-type" required onchange="toggleStateField()">
+      <option value="">-- Select Visit Type --</option>
+      <option value="text">Text Visit</option>
+      <option value="video">Video Visit</option>
+    </select>
+
+    <div id="state-field">
+      <label for="state">Select State *</label>
+      <input type="text" id="state" name="state" list="state-options" placeholder="Start typing your state..." />
+      <datalist id="state-options">
+        <option value="Alabama">
+        <option value="Alaska">
+        <option value="Arizona">
+        <option value="Arkansas">
+        <option value="California">
+        <option value="Colorado">
+        <option value="Connecticut">
+        <option value="Delaware">
+        <option value="Florida">
+        <option value="Georgia">
+        <option value="Hawaii">
+        <option value="Idaho">
+        <option value="Illinois">
+        <option value="Indiana">
+        <option value="Iowa">
+        <option value="Kansas">
+        <option value="Kentucky">
+        <option value="Louisiana">
+        <option value="Maine">
+        <option value="Maryland">
+        <option value="Massachusetts">
+        <option value="Michigan">
+        <option value="Minnesota">
+        <option value="Mississippi">
+        <option value="Missouri">
+        <option value="Montana">
+        <option value="Nebraska">
+        <option value="Nevada">
