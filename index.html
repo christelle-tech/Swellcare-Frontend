@@ -1,63 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Swellcare Visit Form</title>
   <style>
     body {
-      <div style="text-align: center; margin-bottom: 20px;">
-  <img src="./logo.png" alt="Swell Medical Logo" style="max-width: 200px;" />
-</div>
       font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
+      background-color: #f5f5f5;
       display: flex;
       justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
+      padding: 40px;
     }
     .form-container {
-      background-color: #fff;
-      padding: 2rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      background: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
       width: 100%;
       max-width: 500px;
     }
+    .form-container img {
+      display: block;
+      margin: 0 auto 20px auto;
+      max-width: 200px;
+    }
     h2 {
       text-align: center;
-      margin-bottom: 1.5rem;
+      margin-bottom: 30px;
     }
     label {
-      display: block;
-      margin: 1rem 0 0.25rem;
       font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
     }
-    input, select {
+    input, select, button {
       width: 100%;
-      padding: 0.75rem;
+      padding: 10px;
+      margin-bottom: 20px;
+      border-radius: 5px;
       border: 1px solid #ccc;
-      border-radius: 4px;
+      font-size: 16px;
     }
     button {
-      margin-top: 1.5rem;
-      width: 100%;
-      padding: 0.75rem;
-      background-color: #007a7c;
-      color: #fff;
+      background-color: #007977;
+      color: white;
       border: none;
-      border-radius: 4px;
       cursor: pointer;
-      font-weight: bold;
     }
     button:hover {
-      background-color: #005f5f;
+      background-color: #006666;
     }
   </style>
 </head>
 <body>
   <div class="form-container">
+    <img src="logo.jpg" alt="Swell Medical Logo" />
     <h2>Swellcare Visit Form</h2>
     <form>
       <label for="name">Name *</label>
@@ -72,81 +70,9 @@
       <label for="visitType">Visit Type *</label>
       <select id="visitType" name="visitType" required>
         <option value="">-- Select Visit Type --</option>
-        <option value="chat">Text Visit</option>
+        <option value="text">Text Visit</option>
         <option value="video">Video Visit</option>
       </select>
 
-      <div id="state-field" style="display: none;">
-        <label for="state">State *</label>
-        <input type="text" id="state" name="state" list="state-options" placeholder="Start typing your state..." required />
-        <datalist id="state-options">
-          <option value="Alabama">
-          <option value="Alaska">
-          <option value="Arizona">
-          <option value="Arkansas">
-          <option value="California">
-          <option value="Colorado">
-          <option value="Connecticut">
-          <option value="Delaware">
-          <option value="Florida">
-          <option value="Georgia">
-          <option value="Hawaii">
-          <option value="Idaho">
-          <option value="Illinois">
-          <option value="Indiana">
-          <option value="Iowa">
-          <option value="Kansas">
-          <option value="Kentucky">
-          <option value="Louisiana">
-          <option value="Maine">
-          <option value="Maryland">
-          <option value="Massachusetts">
-          <option value="Michigan">
-          <option value="Minnesota">
-          <option value="Mississippi">
-          <option value="Missouri">
-          <option value="Montana">
-          <option value="Nebraska">
-          <option value="Nevada">
-          <option value="New Hampshire">
-          <option value="New Jersey">
-          <option value="New Mexico">
-          <option value="New York">
-          <option value="North Carolina">
-          <option value="North Dakota">
-          <option value="Ohio">
-          <option value="Oklahoma">
-          <option value="Oregon">
-          <option value="Pennsylvania">
-          <option value="Rhode Island">
-          <option value="South Carolina">
-          <option value="South Dakota">
-          <option value="Tennessee">
-          <option value="Texas">
-          <option value="Utah">
-          <option value="Vermont">
-          <option value="Virginia">
-          <option value="Washington">
-          <option value="West Virginia">
-          <option value="Wisconsin">
-          <option value="Wyoming">
-        </datalist>
-      </div>
+      <label for="state">State *</la*
 
-      <button type="submit">Submit</button>
-    </form>
-  </div>
-
-  <script>
-    document.getElementById('visitType').addEventListener('change', function () {
-      const stateField = document.getElementById('state-field');
-      if (this.value === 'chat') {
-        stateField.style.display = 'block';
-      } else {
-        stateField.style.display = 'none';
-        document.getElementById('state').value = '';
-      }
-    });
-  </script>
-</body>
-</html>
