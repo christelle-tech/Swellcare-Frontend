@@ -7,64 +7,49 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #f5f5f5;
-      margin: 0;
-      padding: 40px;
+      background-color: #f4f4f4;
     }
-
     .container {
-      background: white;
       max-width: 600px;
-      margin: 0 auto;
-      padding: 40px;
-      border-radius: 10px;
-      box-shadow: 0 0 12px rgba(0,0,0,0.1);
-    }
-
-    .logo {
-      display: block;
-      margin: 0 auto 20px;
-      max-width: 200px;
-    }
-
-    h1 {
+      margin: 40px auto;
+      padding: 30px;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
       text-align: center;
-      margin-bottom: 30px;
     }
-
+    img.logo {
+      max-width: 180px;
+      margin-bottom: 15px;
+    }
+    h2 {
+      margin-bottom: 25px;
+    }
     label {
       display: block;
-      margin-top: 20px;
+      margin-top: 15px;
+      text-align: left;
       font-weight: bold;
     }
-
-    input[type="text"],
-    input[type="email"],
-    input[type="tel"],
-    select {
+    input, select {
       width: 100%;
-      padding: 12px;
+      padding: 10px;
       margin-top: 5px;
+      border-radius: 5px;
       border: 1px solid #ccc;
-      border-radius: 5px;
+      box-sizing: border-box;
     }
-
-    #state-container {
-      display: none;
-    }
-
     button {
+      margin-top: 25px;
       width: 100%;
-      background-color: #007c7b;
+      background-color: #007e7e;
       color: white;
+      padding: 12px;
       border: none;
-      padding: 15px;
-      font-size: 16px;
-      margin-top: 30px;
-      border-radius: 5px;
+      border-radius: 6px;
       cursor: pointer;
+      font-size: 16px;
     }
-
     button:hover {
       background-color: #005f5f;
     }
@@ -72,9 +57,9 @@
 </head>
 <body>
   <div class="container">
-    <img src="Swell-Icon.jpg" alt="Swell Medical Logo" class="logo" />
-    <h1>Swellcare Visit Form</h1>
-    <form id="visit-form">
+    <img src="Swell-Icon.jpg" alt="Swell Medical Logo" class="logo">
+    <h2>Swellcare Visit Form</h2>
+    <form id="visitForm">
       <label for="name">Name *</label>
       <input type="text" id="name" name="name" required />
 
@@ -91,77 +76,51 @@
         <option value="video">Video Visit</option>
       </select>
 
-      <div id="state-container">
-        <label for="state">State *</label>
-        <select id="state" name="state" required>
-          <option value="">-- Select your State --</option>
-          <option>Alabama</option>
-          <option>Alaska</option>
-          <option>Arizona</option>
-          <option>Arkansas</option>
-          <option>California</option>
-          <option>Colorado</option>
-          <option>Connecticut</option>
-          <option>Delaware</option>
-          <option>Florida</option>
-          <option>Georgia</option>
-          <option>Hawaii</option>
-          <option>Idaho</option>
-          <option>Illinois</option>
-          <option>Indiana</option>
-          <option>Iowa</option>
-          <option>Kansas</option>
-          <option>Kentucky</option>
-          <option>Louisiana</option>
-          <option>Maine</option>
-          <option>Maryland</option>
-          <option>Massachusetts</option>
-          <option>Michigan</option>
-          <option>Minnesota</option>
-          <option>Mississippi</option>
-          <option>Missouri</option>
-          <option>Montana</option>
-          <option>Nebraska</option>
-          <option>Nevada</option>
-          <option>New Hampshire</option>
-          <option>New Jersey</option>
-          <option>New Mexico</option>
-          <option>New York</option>
-          <option>North Carolina</option>
-          <option>North Dakota</option>
-          <option>Ohio</option>
-          <option>Oklahoma</option>
-          <option>Oregon</option>
-          <option>Pennsylvania</option>
-          <option>Rhode Island</option>
-          <option>South Carolina</option>
-          <option>South Dakota</option>
-          <option>Tennessee</option>
-          <option>Texas</option>
-          <option>Utah</option>
-          <option>Vermont</option>
-          <option>Virginia</option>
-          <option>Washington</option>
-          <option>West Virginia</option>
-          <option>Wisconsin</option>
-          <option>Wyoming</option>
-        </select>
-      </div>
+      <label for="state">State *</label>
+      <input list="states" id="state" name="state" placeholder="Start typing your state..." required />
+      <datalist id="states">
+        <option value="Alabama"><option value="Alaska"><option value="Arizona">
+        <option value="Arkansas"><option value="California"><option value="Colorado">
+        <option value="Connecticut"><option value="Delaware"><option value="Florida">
+        <option value="Georgia"><option value="Hawaii"><option value="Idaho">
+        <option value="Illinois"><option value="Indiana"><option value="Iowa">
+        <option value="Kansas"><option value="Kentucky"><option value="Louisiana">
+        <option value="Maine"><option value="Maryland"><option value="Massachusetts">
+        <option value="Michigan"><option value="Minnesota"><option value="Mississippi">
+        <option value="Missouri"><option value="Montana"><option value="Nebraska">
+        <option value="Nevada"><option value="New Hampshire"><option value="New Jersey">
+        <option value="New Mexico"><option value="New York"><option value="North Carolina">
+        <option value="North Dakota"><option value="Ohio"><option value="Oklahoma">
+        <option value="Oregon"><option value="Pennsylvania"><option value="Rhode Island">
+        <option value="South Carolina"><option value="South Dakota"><option value="Tennessee">
+        <option value="Texas"><option value="Utah"><option value="Vermont">
+        <option value="Virginia"><option value="Washington"><option value="West Virginia">
+        <option value="Wisconsin"><option value="Wyoming">
+      </datalist>
 
       <button type="submit">Submit</button>
     </form>
   </div>
 
   <script>
-    const visitType = document.getElementById("visitType");
-    const stateContainer = document.getElementById("state-container");
+    document.getElementById('visitForm').addEventListener('submit', function (e) {
+      e.preventDefault();
 
-    visitType.addEventListener("change", function () {
-      if (this.value === "text") {
-        stateContainer.style.display = "block";
+      const visitType = document.getElementById('visitType').value;
+      let checkoutURL = '';
+
+      if (visitType === 'text') {
+        checkoutURL = 'https://checkout.square.site/merchant/MLQX671ZR8C8E/checkout/GS22E4DWNZT3566ROXTSFFP5';
+      } else if (visitType === 'video') {
+        checkoutURL = 'https://checkout.square.site/merchant/MLQX671ZR8C8E/checkout/HYNOEDYQURJOYUXSZFMPCAOJ';
       } else {
-        stateContainer.style.display = "none";
+        alert('Please select a valid visit type.');
+        return;
       }
+
+      // Optionally, do something with form data here before redirecting
+
+      window.location.href = checkoutURL;
     });
   </script>
 </body>
